@@ -1,0 +1,25 @@
+<script src="./socket.io.js"></script>
+<script>
+	var socket;
+	function connectSocket() {
+		socket = io.connect('http://localhost:8080');
+
+		socket.on('news', (data) => {
+			console.log(data);
+			socket.emit('my other event', { my: 'data' });
+		});
+
+		socket.on('switch', (data) => {
+			console.log(data);
+			//socket.emit('my other event', { my: 'data' });
+		});
+	}
+	
+
+
+
+</script>
+
+<html>
+<input type="button" value="Connect" onclick="javaScript:connectSocket();">
+</html>
